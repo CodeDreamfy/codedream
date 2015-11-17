@@ -2,8 +2,8 @@
 title: "CodeDreamfy的前端博客"
 email: "codedreamfy@outlook.com"
 description: "每天多学一点，就能少写一行代码"
-baseurl: "/" # the subpath of your site, e.g. /blog/
-url: "http://codedreamfy.github.io/codedreamfy" # the base hostname & protocol for your site
+baseurl: "/codedreamfy" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
 github_username:  codedreamfy
 category: blog
 permalink: /:categories/:year-:month/:title
