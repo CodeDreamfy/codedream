@@ -1,0 +1,92 @@
+---
+layout: default
+title: 二维码生成
+---
+
+<script src="{{ "/js/lib/jquery.qrcode.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+
+
+<style>
+    .contend {width: 520px;}
+    .contend textarea { padding: 10px;border: 1px solid #ccc; width: 100%; outline: 0;}
+    .contend a {width: 100px; height: 30px; line-height: 30px; background: green; color: white; text-align: center; display: inline-block; border-radius: 6px; margin-top: 10px;}
+    .qcode {width: 286px; height: 292px; padding: 18px 15px; border: 1px solid #ccc; float: right; box-sizing: border-box; position: relative;}
+    .qcode .tips { position: absolute; bottom: -70px; padding: 5px 10px; border-radius: 8px; box-shadow: 0 1px 2px #666; left: 0; color: yellow; background: green; font-weight: border; line-height: 38px; font-size: 20px; display: none;}
+    .qcode .tips.error { background: #ccc; color: red;}
+</style>
+console.log({{ 'hehe' | prepend:"11" }})
+<h1>{{page.title}}</h1>
+<div class="box clearfix">
+    <div class="qcode"><p class="tips"></p></div>
+    <div class="contend">
+        <textarea class="text" cols="62" rows="20" placeholder="请输入文本，支持文本和网址！"></textarea>
+        <a href="javascript:void(0)" class="btn" >生成二维码</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function (){
+        var $btn = $('.btn');
+        var $qcode = $('.qcode');
+        var $tips = $('.tips');
+        var timer;
+        $btn.on('click', function() {
+            if($('.qcode canvas')) {
+               $('.qcode canvas').detach(); 
+            };
+            if(timer){
+                clearTimeout(timer);
+            }
+            var $text = $('.text');
+            var text = $text.val();
+            text = $.trim(text);
+            if(text) {
+                $qcode.qrcode({
+                    text: utf16to8(text),  //设置二维码内容
+                    render: "canvas",//设置渲染方式
+                    width: 256,     //设置宽度
+                    height: 256,     //设置高度
+                    typeNumber: -1,      //计算模式
+                    correctLevel: 0,//纠错等级
+                    background: "#ffffff",//背景颜色
+                    foreground: "#000000" //前景颜色
+                });
+                $tips.removeClass('error').text("生成成功!").fadeIn('fast');
+                timer = setTimeout(function(){
+                    $tips.fadeOut('slow');
+                },1500)
+            }else {
+                $tips.addClass('error').text("生成失败，没有文本或网页!").fadeIn('fast');
+                timer = setTimeout(function(){
+                    $tips.fadeOut('slow');
+                },1500)
+            }
+        })
+    });
+
+    function utf16to8(str) {  
+        var out, i, len, c;  
+        out = "";  
+        len = str.length;  
+        for(i = 0; i < len; i++) {  
+        c = str.charCodeAt(i);  
+        if ((c >= 0x0001) && (c <= 0x007F)) {  
+            out += str.charAt(i);  
+        } else if (c > 0x07FF) {  
+            out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
+            out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));  
+            out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+        } else {  
+            out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));  
+            out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+        }  
+        }  
+        return out;  
+    }  
+
+</script>
+
+
+
+

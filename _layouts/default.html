@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="newslist">
+          {{ content }}
+        </div>
+        <div class="sidebar">
+          <h1 class="sidebar-heading">个人简介</h1>
+        </div>
+      </div>
+    </div>
+    {% include footer.html %}
+    <script type="text/javascript" src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript">
+      
+
+    </script>
+  </body>
+
+</html>
