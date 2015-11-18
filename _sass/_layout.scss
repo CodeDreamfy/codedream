@@ -5,7 +5,7 @@
 .site-header {
   width: 100%; height: 82px;
   position: fixed; top: 0; left: 0;
-  background-color: rgba(221,221,221,.8);
+  background-color: rgba(221,221,221,1);
   box-shadow:0 2px 6px #828282;
   transition: background-color 1s ease-out;
   &:hover {
@@ -173,7 +173,7 @@
 .page-content {
     .wrapper {
       margin: 120px auto 0;
-      background: url(../images/content-bg.png) center center repeat-x #fff;
+      background: #fff;
       box-shadow: 1px 0 6px #ddd;
       .newslist {
         @extend %fl;
@@ -191,27 +191,121 @@
         @extend %fr;
         width: 210px;
         padding: 30px 20px;
-        .sidebar-heading {
-          @include heading;
+        .date-time {
+          width: 140px;
+          height: 140px;
+          margin: 0 auto;
+          background: url(../images/date.png) left top no-repeat;
+          .m {
+            display: block;
+            height: 33px;
+            line-height: 33px;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+          }
+          .d {
+            display: block;
+            height: 107px;
+            font-size: 86px;
+            line-height: 106px;
+            text-align: center;
+            font-weight: bolder;
+            background: url(../images/date.png) left -150px no-repeat;
+          }
         }
+        .postCategory {
+          margin-top: 20px;
+          .sidebar-heading {
+            @include heading;
+          }
+          .sidebar-list {
+            li {
+              height: 32px;
+              a {
+                width: 100%;
+                display: inline-block;
+                line-height: 32px;
+                @extend %thide;
+                color: #111;
+                &:hover {
+                  color: #4285F4;
+                }
+              }
+            }
+          }
+        }
+        
       }
     }
 }
 
-
+/* index */
 .post-list {
     margin-left: 0;
     list-style: none;
 
     > li {
         margin-bottom: 10px;
+        border-radius: 8px;
+        padding: 5px;
+        @extend %rel;
+        .line {
+          @extend %page-line;
+          top: 0;
+          left: -20px;
+          opacity: 0;
+          // background: #ccc;
+          //display: none;
+        }
         a {
-          color: #666;
-          &:hover {
-            color: #4285F4;
-          }
+          color: #111;
+        }
+        &:nth-child(1) {
+          margin-top: 10px;
         }
     }
+}
+/* page-list animation */
+.pagelist-animate {
+  -webkit-animation: pageline 1.2s infinite;
+  animation: pageline 1.2s infinite;
+}
+@-webkit-keyframes pageline {
+  0% {
+    opacity: 0;
+    left: 0;
+  }
+  1% {
+    opacity:  0.5;
+    left: 0;
+  }
+  99% {
+    opacity: 1;
+    left: 680px;
+  }
+  100% {
+    opacity: 0;
+    left: 690px;
+  }
+}
+@keyframes pageline {
+  0% {
+    opacity: 0;
+    left: 0;
+  }
+  1% {
+    opacity:  0.5;
+    left: 0;
+  }
+  99% {
+    opacity: 1;
+    left: 680px;
+  }
+  100% {
+    opacity: 0;
+    left: 690px;
+  }
 }
 
 .post-meta {
@@ -224,6 +318,45 @@
     font-size: 24px;
 }
 
+/* showCategory */
+.newslist {
+  .category{
+    min-height: 600px;
+    .post-header {
+      height: 40px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+      .post-title {
+        font-size: 22px;
+        line-height: 40px;
+      }
+    }
+    .cat-list {
+      li {
+        height: 56px;
+        background: #f1f1f1;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        a {
+          line-height: 56px;
+          color: #111;
+          font-size: 20px;
+          padding-left: 8px;
+          &:hover {
+            color: #4285F4;
+          }
+        }
+        span {
+          @extend %fr;
+          line-height: 56px;
+          margin-right: 10px;
+          color: #999;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
 
 
 /**

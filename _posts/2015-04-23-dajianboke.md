@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 搭建自己的个人博客
+category: jekyll
 ---
 
 #搭建自己的个人博客

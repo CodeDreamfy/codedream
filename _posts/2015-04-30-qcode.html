@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 二维码生成
+category: utils
 ---
 
 <script src="{{ "/js/lib/jquery.qrcode.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
@@ -26,7 +27,7 @@ console.log({{ 'hehe' | prepend:"11" }})
 
 <script type="text/javascript">
 
-    $(function (){
+    jQuery(function ($){
         var $btn = $('.btn');
         var $qcode = $('.qcode');
         var $tips = $('.tips');

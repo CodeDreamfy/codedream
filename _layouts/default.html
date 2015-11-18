@@ -13,16 +13,35 @@
           {{ content }}
         </div>
         <div class="sidebar">
-          <h1 class="sidebar-heading">个人简介</h1>
+          <div class="date-time">
+            <span class="m">
+              {{ site.time | date: "20%y年%m月"}}
+            </span>
+            <span class="d">
+              {{ site.time | date: '%d'}}
+            </span>
+          </div>
+          <div class="postCategory">
+            <h1 class="sidebar-heading">文章分类</h1>
+            <ul class="sidebar-list">
+              {% for category in site.categories %}
+                {% assign cat = {{ category | first }} %}
+                <li>
+                  <a href="{{ "showCategory.html?cat=" | prepend: site.baseurl }}{{ category | first }}">{{ category | first }}({{ category | last | size }})</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     {% include footer.html %}
-    <script type="text/javascript" src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
-    <script type="text/javascript">
-      
 
-    </script>
+    
+    <script type="text/javascript" src="{{ "js/lib/jquery.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "js/lib/jquery.query.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "js/main.js" | prepend: site.baseurl }}"></script>
+
   </body>
 
 </html>
