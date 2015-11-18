@@ -27,7 +27,7 @@
               {% for category in site.categories %}
                 {% assign cat = {{ category | first }} %}
                 <li>
-                  <a href="{{ "showCategory.html?cat=" | prepend: site.baseurl }}{{ category | first }}">{{ category | first }}({{ category | last | size }})</a>
+                  <a href="{{ "/showCategory.html?cat=" | prepend: site.baseurl }}{{ category | first }}">{{ category | first }}({{ category | last | size }})</a>
                 </li>
               {% endfor %}
             </ul>
@@ -38,9 +38,9 @@
     {% include footer.html %}
 
     
-    <script type="text/javascript" src="{{ "js/lib/jquery.min.js" | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ "js/lib/jquery.query.js" | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ "js/main.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/lib/jquery.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/lib/jquery.query.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
 
   </body>
 
