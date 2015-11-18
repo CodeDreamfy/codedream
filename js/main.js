@@ -2,8 +2,7 @@ $(function(){
   var $header = $('header'),
       $indexWrap = $('.page-content .wrapper'),
       $postList = $('.home .post-list', $indexWrap),
-      $sidebar = $('.sidebar', $indexWrap),
-      $postCategory = $('.postCategory', $sidebar);
+      $sidebar = $('.sidebar', $indexWrap);
   
   /* nav hover */
   $header.find('.logo a').addClass('one')
@@ -22,7 +21,18 @@ $(function(){
     $line.show().removeClass('pagelist-animate');
     $line.hide('slow');
   })
-
+  /* 首页日期 */
+  var date = new Date(),
+      y = date.getFullYear()+'年',
+      mon = date.getMonth()+1+'月',
+      today = date.getDate();
+  $sidebar.find('.date-time span').append(function(index){
+    if(index == 0){
+      return y+mon;
+    }else {
+      return today;
+    }
+  })
 
 })
 
