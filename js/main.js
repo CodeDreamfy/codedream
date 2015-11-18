@@ -36,14 +36,14 @@ $(function(){
 
 })
 
-/* 判断是否是首页，设置newslist的宽度，显隐藏sidebar */
-+function (){
-  var $sidebar = $('.sidebar'),
-      $newslist = $('.newslist'),
-      Class = $newslist.children().attr('class'),
-      newslistClass = 'null|home|category'.split('|');
-  if( newslistClass.indexOf(Class) == '-1'){
-    console.log('hehe')
+
++function(){
+  /* 判断是否是首页，设置newslist的宽度，显隐藏sidebar */
+  var $newslist = $('.newslist');
+  var $sidebar = $('.sidebar');
+  var mainClass = $newslist.children().attr('class').split(' ');
+  if( mainClass.indexOf('post') != '-1'){
+    console.log('hehe');
     $sidebar.hide();
     $newslist.css({'width' : '940px', 'border-right' : 'none'});
   }else {
@@ -53,4 +53,5 @@ $(function(){
   }
 
 }()
+
 
