@@ -43,11 +43,9 @@ $(function(){
   var $sidebar = $('.sidebar');
   var mainClass = $newslist.children().attr('class').split(' ');
   if( mainClass.indexOf('post') != '-1'){
-    console.log('hehe');
     $sidebar.hide();
     $newslist.css({'width' : '940px', 'border-right' : 'none'});
   }else {
-    console.log('bbb')
     $sidebar.show();
     $newslist.css({'width' : '689px', 'border-right' : '1px solid $grey-color-light'});
   }

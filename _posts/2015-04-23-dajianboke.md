@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 搭建自己的个人博客
-category: jekyll
+category: Course
+tags: [github,jekyll]
 ---
 
 #搭建自己的个人博客

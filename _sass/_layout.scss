@@ -191,6 +191,7 @@
         @extend %fr;
         width: 210px;
         padding: 30px 20px;
+        //Date Time
         .date-time {
           width: 140px;
           height: 140px;
@@ -215,6 +216,7 @@
             background: url(../images/date.png) left -150px no-repeat;
           }
         }
+        //Cagtegory
         .postCategory {
           margin-top: 20px;
           .sidebar-heading {
@@ -236,7 +238,29 @@
             }
           }
         }
-        
+        //Tags
+        .postTags {
+          margin-top: 20px;
+          .tags-heading {
+            @include heading;
+          }
+          .tags-list {
+            a {
+              display: inline-block;
+              padding: 0 10px;
+              line-height: 32px;
+              font-size: 12px;
+              margin: 5px;
+              margin-left: 0;
+              background: #f1f1f1;
+              color: #111;
+              &:hover {
+                color: #fff;
+                background: #34A853;
+              }
+            }
+          }
+        }
       }
     }
 }
@@ -256,11 +280,10 @@
           top: 0;
           left: -20px;
           opacity: 0;
-          // background: #ccc;
-          //display: none;
         }
         a {
           color: #111;
+          @extend %thide;
         }
         &:nth-child(1) {
           margin-top: 10px;
@@ -312,6 +335,7 @@
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
+    margin: 5px 0;
 }
 
 .post-link {
@@ -319,7 +343,9 @@
     font-size: 24px;
 }
 
-/* showCategory */
+/* showlist
+* 显示单一分类的列表 / 标签下的文章
+*/
 .newslist {
   .category{
     min-height: 600px;
@@ -332,7 +358,7 @@
         line-height: 40px;
       }
     }
-    .cat-list {
+    .list {
       li {
         height: 56px;
         background: #f1f1f1;
@@ -343,6 +369,7 @@
           color: #111;
           font-size: 20px;
           padding-left: 8px;
+          @extend %thide;
           &:hover {
             color: #4285F4;
           }
@@ -365,6 +392,7 @@
  */
 .post-header {
     margin-bottom: $spacing-unit;
+    border-bottom: 1px solid $grey-color-light;
 }
 
 .post-title {

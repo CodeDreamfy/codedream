@@ -23,10 +23,18 @@
               {% for category in site.categories %}
                 {% assign cat = {{ category | first }} %}
                 <li>
-                  <a href="{{ "/showCategory.html?cat=" | prepend: site.baseurl }}{{ category | first }}">{{ category | first }}({{ category | last | size }})</a>
+                  <a href="{{ "/showlist.html?cat=" | prepend: site.baseurl }}{{ category | first }}">{{ category | first | capitalize }}<sup>({{ category | last | size }})</sup></a>
                 </li>
               {% endfor %}
             </ul>
+          </div>
+          <div class="postTags">
+            <h1 class="tags-heading">标签</h1>
+            <div class="tags-list">
+              {% for tag in site.tags %}
+                <a href="{{ "/showlist.html?tag=" | prepend: site.baseurl }}{{ tag[0] }}">{{ tag[0] | capitalize }}</a>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>

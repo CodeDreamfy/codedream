@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<div class="home category">
+ <script type="text/javascript">
+  $(function(){
+    var curTag,dataStr,data,archieves;
+    var $List = $('.newslist .list');
+    if($.query.get('cat')){
+      curTag = $.query.get('cat');
+      $('.post-title').html(curTag);  
+      dataStr = '{ {% for cat in site.categories %}{% if cat[0] != site.categories.first[0] %},{% endif %}"{{ cat[0] }}":[{% for post in cat[1] %}{% if post != cat[1].first %},{% endif %}{"url":"{{post.url}}","title":"{{post.title}}","date":"{{post.date | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }';
+    }else {
+      curTag = $.query.get('tag');
+      $('.post-title').html(curTag);
+      dataStr = '{ {% for tag in site.tags %}{% if tag[0] != site.tags.first[0] %},{% endif %}"{{ tag[0] }}":[{% for post in tag[1] %}{% if post != tag[1].first %},{% endif %}{"url":"{{post.url}}", "title":"{{post.title}}", "date":"{{post.date | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }';
+    } 
+    data = JSON.parse(dataStr);
+    archieves = data[curTag];
+    //console.log(archieves)
+    for(var i = 0; i < archieves.length; i++){
+      var item = archieves[i];
+      var str = '<li><span>'+item.date+'</span><a href="{{ site.baseurl }}'+item.url+'">'+item.title+'</a></li>'
+      $List.append(str);
+    }
+    
+    
+  })
+  
+</script>
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+  <ul class="list"></ul>
+</div>

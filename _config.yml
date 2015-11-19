@@ -11,4 +11,7 @@ permalink: /:categories/:year-:month/:title
 
 # Build settings
 markdown: kramdown
+
 highlight: true
+
+# 分页
