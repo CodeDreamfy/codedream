@@ -8,10 +8,21 @@ port:   4000
 url: "http://codedreamfy.github.io/codedreamfy" # the base hostname & protocol for your site
 github_username:  codedreamfy
 permalink: /:categories/:year-:month/:title
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Build settings
-markdown: kramdown
-
+markdown: redcarpet
+# markdown: kramdown
+# pygments: true
 highlight: true
-
+redcarpet:
+  extensions:
+    - hard_wrap
+    - no_intra_emphasis
+    - autolink
+    - strikethrough
+    - fenced_code_blocks
+# kramdown:
+#   input: GFM
 # 分页
