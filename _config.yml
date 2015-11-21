@@ -12,17 +12,33 @@ encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Build settings
-markdown: redcarpet
-# markdown: kramdown
+# markdown: rdiscount
+# markdown: redcarpet
+markdown: kramdown
 # pygments: true
 highlight: true
-redcarpet:
-  extensions:
-    - hard_wrap
-    - no_intra_emphasis
-    - autolink
-    - strikethrough
-    - fenced_code_blocks
-# kramdown:
-#   input: GFM
+# redcarpet:
+#   extensions:
+#     - hard_wrap
+#     # - no_intra_emphasis
+#     # - autolink
+#     - strikethrough
+#     - fenced_code_blocks
+#     - tables
+#     - superscript
+
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  parse_block_html: true
+  coderay:
+    coderay_wrap: div
+    coderay_line_numbers: inline
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 2
+    coderay_bold_every: 10
+    coderay_css: style
 # 分页
